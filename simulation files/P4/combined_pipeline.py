@@ -25,6 +25,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import matplotlib.patches as mpatches
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
 from scipy.linalg import svd
 
 np.random.seed(42)
