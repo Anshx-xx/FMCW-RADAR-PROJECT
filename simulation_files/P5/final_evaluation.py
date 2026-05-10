@@ -296,7 +296,17 @@ for ax, (r_ax, pdb, label, col) in zip(axes2, [
     ax.set_xlim(R1-zoom, R2+zoom)
 
     # Check if peaks are resolved
-    peaks, _ = find_peaks(pdb[mask], height=np.max(pdb[mask])-15, distance=5)
+    masked_pdb = pdb[mask]
+
+if masked_pdb.size == 0:
+    print("WARNING: Empty masked region detected")
+    peaks = []
+else:
+    peaks, _ = find_peaks(
+        masked_pdb,
+        height=np.max(masked_pdb) - 15,
+        distance=5
+    )
     resolved  = len(peaks) >= 2
     status    = '✓ RESOLVED' if resolved else '✗ NOT RESOLVED'
     status_col = 'seagreen' if resolved else 'tomato'
@@ -628,11 +638,21 @@ axes7[1].set_title('Zoom: critical SNR region (8–18 dB)')
 axes7[1].set_xlim(8, 18)
 
 # Find SNR at Pd=0.9 for each method
-def snr_at_90pd(pd_list):
-    for i, pd in enumerate(pd_list):
+def snr_at_90pd(pd_vals, snr_vals=None):
+    """
+    Returns minimum SNR required to achieve Pd >= 0.9
+    Always returns a NUMBER.
+    """
+
+    if snr_vals is None:
+        snr_vals = [3, 6, 9, 12, 15, 18]
+
+    for snr, pd in zip(snr_vals, pd_vals):
         if pd >= 0.9:
-            return snr_sweep[i]
-    return '>23'
+            return float(snr)
+
+    # If never reaches 0.9
+    return float(snr_vals[-1])
 
 print(f"  SNR required for Pd=0.9:")
 print(f"    CA-CFAR standard    : {snr_at_90pd(pd_ca7)} dB")
@@ -661,7 +681,7 @@ gs = gridspec.GridSpec(3, 3, figure=fig8, hspace=0.45, wspace=0.4)
 ax8a = fig8.add_subplot(gs[0, :2])
 ax8a.plot(R_sweep,  snr_mono,      'steelblue', lw=2, label=f'Monostatic  max={R_max_mono:.0f} m')
 ax8a.plot(d_sweep,  snr_bi_enh,    'seagreen',  lw=2, label=f'Bi+Enhanced max={R_max_bi_enh:.0f} m')
-ax8a.axhline(SNR_THR, 'k', ls=':', lw=1.2)
+ax8a.axhline(y=SNR_THR, color='k', ls=':', lw=1.2)
 ax8a.axvspan(R_max_mono, R_max_bi_enh, alpha=0.1, color='seagreen', label='Range gain zone')
 ax8a.set_xlim(0, 900); ax8a.set_ylim(-10, 80)
 ax8a.set_xlabel('Range (m)'); ax8a.set_ylabel('SNR (dB)')
@@ -748,6 +768,7 @@ print("  PHASE 5 — FINAL EVALUATION RESULTS")
 print(DIVIDER)
 print(f"  {'Metric':<42} {'Value':>20}")
 print("-" * 65)
+improvement_db = float(snr_at_90pd(pd_ca7)) - float(snr_at_90pd(pd_bi7))
 final_rows = [
     ("Carrier frequency",                    f"{fc/1e9:.0f} GHz"),
     ("Bandwidth",                            f"{B/1e6:.0f} MHz"),
@@ -773,7 +794,7 @@ final_rows = [
     ("--- DETECTION PROBABILITY ---",        ""),
     ("SNR for Pd=0.9 (CA-CFAR baseline)",   f"{snr_at_90pd(pd_ca7)} dB"),
     ("SNR for Pd=0.9 (Bistatic enhanced)",  f"{snr_at_90pd(pd_bi7)} dB"),
-    ("Improvement in detection sensitivity", f"{snr_at_90pd(pd_ca7) - snr_at_90pd(pd_bi7)} dB lower SNR needed"),
+    ("Improvement in detection sensitivity",f"{improvement_db:.1f} dB lower SNR needed"),
     ("",                                     ""),
     ("--- COVERAGE ---",                     ""),
     ("Monostatic 2D coverage",               f"{cov_mono:.1f}%"),
