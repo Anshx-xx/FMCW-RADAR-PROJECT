@@ -1,731 +1,442 @@
-# FMCW Radar Range Enhancement Project — Phase-wise README Collection
+# 📡 FMCW Radar Range Enhancement using Bistatic Geometry & Advanced Signal Processing
+
+<p align="center">
+  <img src="images/banner.png" width="100%">
+</p>
+
+<p align="center">
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![MATLAB](https://img.shields.io/badge/MATLAB-orange?style=for-the-badge)
+![Radar](https://img.shields.io/badge/FMCW-Radar-success?style=for-the-badge)
+![Signal Processing](https://img.shields.io/badge/Signal-Processing-blue?style=for-the-badge)
+![Research](https://img.shields.io/badge/Research-Project-red?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
+
+</p>
+
+<p align="center">
+<img src="https://readme-typing-svg.demolab.com/?lines=FMCW+Radar+Simulation;Bistatic+Radar+Processing;Range+Enhancement+Algorithms;CFAR+Target+Detection;Range-Doppler+Signal+Processing&center=true&width=900&height=45">
+</p>
 
 ---
 
-# Phase 1 — Environment Setup & Study
+# 🛰️ Project Overview
 
-## Overview
-The first phase of the project focuses on building the foundation required for the complete FMCW radar simulation pipeline. Instead of directly jumping into implementation, this stage is dedicated to understanding how FMCW radar systems behave, how beat signals are generated, and how radar data eventually becomes usable range information.
+This project explores the development of an advanced **FMCW Radar Simulation Framework** capable of performing:
 
-This phase also includes setting up the development environment, organizing reference materials, and studying the internal workflow of existing radar simulation repositories.
+- 📡 Monostatic Radar Processing
+- 🛰️ Bistatic Radar Geometry Modelling
+- 📶 Range-Doppler Signal Processing
+- 🧠 Advanced Range Enhancement Algorithms
+- 🎯 CFAR-Based Target Detection
+- 📊 SNR Benchmarking & Performance Evaluation
+- 🔬 Weak Target Detection Analysis
 
-The goal here is simple:
+The complete workflow was designed as a research-oriented radar processing pipeline where each phase gradually evolves from basic FMCW radar simulation into a fully enhanced bistatic radar evaluation system.
 
-> Build enough understanding to confidently design and modify a radar processing pipeline instead of treating it as a black box.
+Unlike simplified academic implementations, this project focuses heavily on:
 
----
-
-## Main Objectives
-
-- Configure the complete simulation environment using Python and MATLAB
-- Install and test radar simulation libraries such as `radarsimpy`
-- Study multiple FMCW radar reference repositories
-- Understand waveform generation and chirp behaviour
-- Learn how beat signals are produced from reflected targets
-- Understand FFT-based range extraction
-- Build familiarity with Range-Doppler processing
-- Create a reusable folder structure for future phases
+- realistic signal behaviour,
+- geometry-aware processing,
+- algorithm benchmarking,
+- and performance visualization.
 
 ---
 
-## Technologies Used
+# 🎥 Simulation Preview
 
-| Tool | Purpose |
+<p align="center">
+  <img src="gifs/radar_scan.gif" width="850">
+</p>
+
+<p align="center">
+  <i>FMCW radar simulation workflow with bistatic enhancement pipeline</i>
+</p>
+
+---
+
+# 📌 Key Features
+
+## 🚀 Core Functionalities
+
+✅ FMCW Chirp Signal Generation  
+✅ Beat Signal Processing  
+✅ Range FFT Implementation  
+✅ Range-Doppler Mapping  
+✅ CA-CFAR Target Detection  
+✅ OS-CFAR Adaptive Detection  
+✅ Bistatic Radar Geometry  
+✅ Coherent Signal Integration  
+✅ Weak Target Detection Analysis  
+✅ SNR Benchmarking  
+✅ Coverage Mapping  
+✅ End-to-End Evaluation Dashboard  
+
+---
+
+# 🧠 Algorithms & Techniques Used
+
+| Category | Methods Implemented |
 |---|---|
-| Python | Core simulation and algorithm development |
-| MATLAB | Signal processing analysis and visualization |
-| radarsimpy | Radar scene and signal simulation |
-| NumPy | Numerical operations |
-| Matplotlib | Plotting and analysis |
-| Jupyter Notebook | Rapid experimentation |
+| Signal Processing | FFT, Zero-Padding, Windowing |
+| Detection | CA-CFAR, OS-CFAR |
+| Enhancement | Coherent Integration, SNR Boosting |
+| Radar Geometry | Monostatic & Bistatic Models |
+| Visualization | Heatmaps, Coverage Maps, Benchmark Graphs |
+| Evaluation | ROC Curves, Detection Probability Analysis |
 
 ---
 
-## What Was Studied
+# 📊 Project Workflow
 
-### FMCW Radar Fundamentals
-The initial study focused on understanding how Frequency Modulated Continuous Wave radar differs from conventional pulsed radar systems.
-
-Important concepts explored:
-
-- Chirp slope
-- Sweep bandwidth
-- Beat frequency
-- Round trip delay
-- Range estimation
-- Velocity estimation
-- Range resolution
-- Sampling constraints
-
-Special attention was given to understanding the relationship between transmitted and received chirps.
-
----
-
-### Beat Signal Understanding
-A large portion of this phase involved learning how the received signal mixes with the transmitted waveform to generate the beat signal.
-
-Key observations:
-
-- Target distance affects beat frequency
-- Moving targets introduce Doppler shift
-- Multiple targets create multiple frequency components
-- FFT converts beat frequencies into range peaks
-
-This understanding becomes critical for every later stage of the project.
-
----
-
-### FFT Processing Pipeline
-The FFT pipeline was studied step-by-step rather than using prebuilt implementations.
-
-Processing flow:
-
-1. Chirp generation
-2. Signal reflection from target
-3. Mixing transmitted and received signals
-4. Beat signal extraction
-5. Windowing
-6. FFT computation
-7. Peak detection
-
-This stage helped in understanding where noise, leakage, and false detections originate.
-
----
-
-## Repository Structure Created
+<p align="center">
+  <img src="images/workflow.png" width="95%">
+</p>
 
 ```text
-project-root/
+Phase 1 → FMCW Fundamentals & Environment Setup
+Phase 2 → Monostatic Radar Baseline
+Phase 3A → Bistatic Geometry Implementation
+Phase 3B → Range Enhancement Algorithms
+Phase 4 → Integrated Enhancement Framework
+Phase 5 → Evaluation & Benchmarking
+```
+
+---
+
+# 🛰️ Radar System Architecture
+
+<p align="center">
+  <img src="images/architecture.png" width="95%">
+</p>
+
+The architecture combines:
+
+- FMCW waveform generation
+- Bistatic propagation modelling
+- FFT-based signal processing
+- CFAR target detection
+- SNR enhancement techniques
+- Final evaluation & benchmarking
+
+This creates a complete research-oriented radar processing framework.
+
+---
+
+# 📂 Repository Structure
+
+```text
+FMCW-RADAR-PROJECT/
 │
-├── data/
-├── notebooks/
-├── simulations/
-├── algorithms/
-├── plots/
-├── reports/
-└── references/
+├── 📁 simulation files/
+│   ├── P1/
+│   ├── P2/
+│   ├── P3A/
+│   ├── P3B/
+│   ├── P4/
+│   └── P5/
+│
+├── 📁 images/
+├── 📁 gifs/
+├── 📁 plots/
+├── 📁 results/
+├── 📁 reports/
+├── 📁 notebooks/
+└── README.md
 ```
 
-The structure was intentionally designed to keep simulations, algorithms, plots, and documentation separate for easier scaling.
+---
+
+# 📡 Phase-Wise Breakdown
+
+# 🔹 Phase 1 — Fundamentals & Environment Setup
+
+### Objectives
+
+- Understand FMCW radar principles
+- Study chirp waveform behaviour
+- Configure Python & MATLAB environment
+- Explore RadarSimPy workflow
+- Learn FFT-based range extraction
+
+### Major Outcomes
+
+✅ Working radar simulation environment  
+✅ Understanding of beat signal generation  
+✅ FFT processing pipeline setup  
+✅ Initial waveform experiments  
 
 ---
 
-## Key Outcomes
+# 🔹 Phase 2 — Monostatic FMCW Radar
 
-By the end of this phase:
+### Objectives
 
-- The complete simulation environment was functional
-- Radar signal flow became conceptually clear
-- Reference repositories were analyzed and documented
-- Basic waveform experiments were successfully executed
-- The FFT-based range extraction pipeline was understood in detail
-
-This phase laid the groundwork for building a custom radar simulation instead of relying entirely on external implementations.
-
----
-
-# Phase 2 — Monostatic FMCW Baseline
-
-## Overview
-This phase focuses on building a complete monostatic FMCW radar simulation pipeline from scratch.
-
-A monostatic radar uses the same location for transmission and reception. Since this configuration is comparatively simpler, it acts as the baseline model for validating signal generation, range processing, Doppler estimation, and detection algorithms.
-
-The primary objective of this stage is to create a working reference model before introducing advanced bistatic geometry and enhancement algorithms.
-
----
-
-## Main Objectives
-
-- Generate FMCW chirp waveforms
-- Simulate transmitted and reflected signals
-- Produce beat signals for targets
-- Perform Range FFT
+- Build monostatic FMCW radar pipeline
+- Generate beat signals
+- Implement range FFT
 - Generate Range-Doppler maps
-- Implement CA-CFAR target detection
-- Validate target estimation accuracy
+- Implement CA-CFAR detection
+
+### Major Outputs
+
+✅ Range FFT plots  
+✅ Range-Doppler heatmaps  
+✅ CFAR detection results  
+✅ Baseline radar evaluation  
 
 ---
 
-## System Model
+# 🔹 Phase 3A — Bistatic Geometry Modelling
 
-The monostatic radar setup includes:
+### Objectives
 
-- Single transmitter
-- Single receiver
-- Static or moving targets
-- Controlled simulation environment
-- Additive noise model
-
-The transmitter and receiver remain colocated throughout the simulation.
-
----
-
-## Signal Processing Pipeline
-
-### 1. Waveform Generation
-FMCW chirps were generated using configurable parameters:
-
-- Bandwidth
-- Sweep time
-- Carrier frequency
-- Sampling rate
-- Chirp slope
-
-Different parameter combinations were tested to study their effect on range resolution.
-
----
-
-### 2. Beat Signal Generation
-Reflected signals were delayed based on target distance.
-
-The transmitted and received signals were mixed to generate the intermediate frequency beat signal.
-
-This stage verified:
-
-- Accurate delay modelling
-- Frequency shifting behaviour
-- Target-dependent beat frequencies
-
----
-
-### 3. Range FFT
-The beat signal was transformed into the frequency domain using FFT.
-
-The FFT output produced clear peaks corresponding to target ranges.
-
-Additional improvements explored:
-
-- Windowing functions
-- Noise suppression
-- Peak sharpening
-- FFT size variation
-
----
-
-### 4. Range-Doppler Mapping
-Multiple chirps were processed together to estimate both:
-
-- Target range
-- Target velocity
-
-This stage introduced Doppler processing and helped visualize moving targets in two dimensions.
-
----
-
-### 5. CA-CFAR Detection
-Cell Averaging CFAR was implemented to perform adaptive target detection.
-
-The detector dynamically adjusted thresholds based on surrounding noise conditions.
-
-Important observations:
-
-- Fixed thresholds fail in noisy environments
-- CFAR improves detection reliability
-- Guard cells reduce target leakage effects
-
----
-
-## Outputs Generated
-
-- FMCW chirp plots
-- Beat signal visualizations
-- Range FFT plots
-- Range-Doppler heatmaps
-- CFAR detection maps
-
----
-
-## Key Outcomes
-
-At the completion of this phase:
-
-- A fully functional monostatic radar pipeline was created
-- Range estimation became stable and measurable
-- Doppler processing was validated
-- CFAR-based detection was operational
-- The baseline model became ready for future enhancement work
-
-This phase effectively became the reference system against which all later improvements would be measured.
-
----
-
-# Phase 3A — Bistatic Geometry
-
-## Overview
-This phase introduces bistatic radar geometry into the project.
-
-Unlike monostatic radar systems, bistatic radar separates the transmitter and receiver into different physical locations. This changes the signal propagation path and introduces new geometric behaviour that can significantly influence detection performance.
-
-The focus of this phase is to redesign the signal model so that it correctly handles bistatic propagation and geometry-aware range computation.
-
----
-
-## Main Objectives
-
-- Separate transmitter and receiver locations
+- Separate transmitter & receiver positions
 - Implement bistatic range equations
-- Update propagation modelling
-- Study bistatic angle effects
-- Simulate multiple baseline configurations
-- Modify beat signal generation for bistatic paths
+- Analyze geometric effects
+- Study baseline configurations
+
+### Major Outcomes
+
+✅ Geometry-aware signal propagation  
+✅ Bistatic delay modelling  
+✅ Coverage enhancement observations  
+✅ Improved target observability  
 
 ---
 
-## Why Bistatic Radar?
+# 🔹 Phase 3B — Range Enhancement Algorithms
 
-Bistatic radar systems offer several practical and theoretical advantages:
-
-- Better target visibility from alternate angles
-- Reduced vulnerability to direct reflection loss
-- Improved stealth target observation in some scenarios
-- Enhanced spatial coverage
-- Additional geometric diversity
-
-This phase explores how geometry itself can contribute to range enhancement.
-
----
-
-## Bistatic Geometry Model
-
-The signal path now includes:
-
-- Transmitter-to-target distance (Rt)
-- Target-to-receiver distance (Rr)
-
-The total propagation distance becomes:
-
-```math
-R_total = Rt + Rr
-```
-
-This fundamentally changes how delays and beat frequencies are calculated.
-
----
-
-## Geometry-Aware Beat Signal
-
-The beat signal generation logic was modified to account for:
-
-- Independent transmitter location
-- Independent receiver location
-- Bistatic delay
-- Angle-based reflections
-- Variable baseline distances
-
-This created a more physically realistic radar environment.
-
----
-
-## Baseline Configuration Experiments
-
-Different transmitter-receiver separations were tested to study:
-
-- Detection sensitivity
-- Signal strength variation
-- Geometric coverage
-- Bistatic angle influence
-- Range estimation behaviour
-
-The experiments helped identify configurations that improved target observability.
-
----
-
-## Enhanced Radar Cross Section Analysis
-
-Certain bistatic angles produced stronger reflected energy compared to the monostatic setup.
-
-This observation highlighted an important insight:
-
-> Geometry alone can improve target detectability even before introducing advanced signal processing algorithms.
-
----
-
-## Outputs Generated
-
-- Bistatic geometry diagrams
-- Delay comparison plots
-- Baseline configuration visualizations
-- Bistatic beat signal plots
-- Range response comparisons
-
----
-
-## Key Outcomes
-
-By the end of this phase:
-
-- The monostatic pipeline was successfully converted into a bistatic system
-- Geometry-aware propagation modelling became operational
-- Multiple baseline experiments were completed
-- Bistatic effects on target response were clearly observed
-- The system became ready for algorithmic enhancement stages
-
----
-
-# Phase 3B — Algorithms for Range Enhancement
-
-## Overview
-After establishing the bistatic geometry framework, this phase focuses on improving radar performance through advanced signal processing algorithms.
-
-The goal is not just to detect targets, but to improve:
-
-- Range resolution
-- Detection probability
-- Noise robustness
-- Angular estimation accuracy
-- Weak target visibility
-
-This phase acts as the intelligence layer of the project.
-
----
-
-## Main Objectives
+### Objectives
 
 - Improve range resolution
-- Reduce false detections
-- Enhance weak target visibility
-- Increase signal-to-noise ratio
-- Implement super-resolution techniques
-- Explore sparse signal reconstruction methods
+- Increase weak target visibility
+- Enhance SNR
+- Implement adaptive detection methods
+
+### Algorithms Explored
+
+✅ Zero-Padding FFT  
+✅ CA-CFAR  
+✅ OS-CFAR  
+✅ Coherent Integration  
+✅ Super-Resolution Concepts  
 
 ---
 
-## Zero-Padding FFT
+# 🔹 Phase 4 — Integrated Enhancement Framework
 
-Zero-padding was introduced before FFT computation.
+### Objectives
 
-Benefits observed:
+- Combine bistatic geometry with enhancement algorithms
+- Benchmark performance improvements
+- Analyze SNR gain
+- Evaluate target detection stability
 
-- Smoother spectral representation
-- Improved peak interpolation
-- Better visualization of target separation
-- Cleaner range spectrum
+### Major Outputs
 
-Although zero-padding does not physically increase resolution, it improves interpretability and peak localization.
-
----
-
-## MUSIC Super-Resolution Algorithm
-
-The MUSIC algorithm was explored for high-resolution direction-of-arrival estimation.
-
-Key features:
-
-- Subspace-based processing
-- Ability to separate closely spaced targets
-- Higher angular resolution than conventional FFT methods
-
-This stage introduced more advanced mathematical signal decomposition techniques.
+✅ Enhanced Range Maps  
+✅ SNR Benchmarking  
+✅ Detection Comparisons  
+✅ Integrated Evaluation Pipeline  
 
 ---
 
-## Improved CFAR Variants
+# 🔹 Phase 5 — Evaluation & Results
 
-Beyond standard CA-CFAR, additional detection methods were explored:
+### Objectives
 
-- OS-CFAR
-- Adaptive thresholding
-- Noise-aware detection strategies
+- Compare monostatic vs bistatic performance
+- Generate ROC curves
+- Evaluate weak target detection
+- Produce final benchmarking dashboard
 
-The goal was to improve performance in cluttered or non-uniform noise environments.
+### Final Deliverables
 
----
-
-## Coherent Signal Integration
-
-Multiple radar returns were integrated coherently to improve overall signal strength.
-
-Advantages:
-
-- Better weak target visibility
-- Higher SNR
-- More stable detections
-- Reduced random noise impact
-
-This became particularly useful in low-reflection target scenarios.
+✅ Coverage Maps  
+✅ ROC Curves  
+✅ Weak Target Detection Analysis  
+✅ Final Evaluation Dashboard  
+✅ Comparative Performance Study  
 
 ---
 
-## Sparse and Compressed Sensing Methods
+# 📷 Results & Visual Outputs
 
-Sparse reconstruction approaches were explored for extracting meaningful target information from limited observations.
+# 📊 Range-Doppler Processing
 
-This section focused on:
-
-- Reduced sampling approaches
-- Sparse recovery principles
-- Efficient signal representation
-- High-resolution reconstruction
-
-These methods are especially relevant in modern radar research.
+<p align="center">
+  <img src="plots/plot1_monostatic_vs_bistatic.png" width="90%">
+</p>
 
 ---
 
-## Outputs Generated
+# 🎯 CFAR Detection Analysis
 
-- Enhanced FFT comparisons
-- Super-resolution plots
-- CFAR benchmarking results
-- Integrated signal visualizations
-- Sparse reconstruction outputs
+<p align="center">
+  <img src="plots/plot3_roc_curves_all_methods.png" width="90%">
+</p>
 
 ---
 
-## Key Outcomes
+# 📶 Algorithm Benchmarking
 
-By the completion of this phase:
-
-- Multiple range enhancement techniques were implemented
-- Detection stability improved significantly
-- Resolution performance increased
-- Weak target handling became more reliable
-- The project gained a strong algorithmic processing layer
+<p align="center">
+  <img src="plots/plot4_algorithm_benchmark.png" width="90%">
+</p>
 
 ---
 
-# Phase 4 — Combining Bistatic Geometry with Algorithms
+# 🛰️ Coverage Mapping
 
-## Overview
-This phase merges the geometric advantages of bistatic radar with the processing advantages of advanced enhancement algorithms.
-
-The purpose is to evaluate how both approaches interact together in a unified radar framework.
-
-This becomes the core experimental stage of the entire project.
+<p align="center">
+  <img src="plots/plot5_coverage_map.png" width="90%">
+</p>
 
 ---
 
-## Main Objectives
+# 📈 Weak Target Detection
 
-- Integrate enhancement algorithms into bistatic simulations
-- Measure SNR improvement
-- Compare detection quality across configurations
-- Generate enhanced range maps
-- Analyze algorithm performance under varying geometry
+<p align="center">
+  <img src="plots/plot7_weak_target_detection.png" width="90%">
+</p>
 
 ---
 
-## Combined Processing Pipeline
+# 🧪 Final Evaluation Dashboard
 
-The new processing chain includes:
-
-1. Bistatic signal generation
-2. Geometry-aware delay modelling
-3. Beat signal computation
-4. FFT processing
-5. Advanced enhancement algorithms
-6. CFAR detection
-7. Performance evaluation
-
-This created a complete end-to-end enhanced radar simulation system.
+<p align="center">
+  <img src="plots/plot8_final_dashboard.png" width="95%">
+</p>
 
 ---
 
-## Experimental Analysis
+# 📊 Performance Highlights
 
-Several experiments were conducted using:
-
-- Different bistatic baselines
-- Multiple target configurations
-- Noise variation
-- Weak target scenarios
-- Different FFT sizes
-- Alternative CFAR approaches
-
-The goal was to identify which combinations produced the strongest improvement.
-
----
-
-## SNR Measurement
-
-Signal-to-noise ratio improvements were measured before and after algorithm application.
-
-Metrics studied:
-
-- Detection confidence
-- Peak sharpness
-- Noise floor reduction
-- False alarm behaviour
-
-This stage quantitatively demonstrated the impact of enhancement methods.
-
----
-
-## Visualization Work
-
-Different plots and visual outputs were generated:
-
-- Enhanced range maps
-- Range-Doppler comparisons
-- SNR improvement graphs
-- Detection overlays
-- Baseline comparison visuals
-
-These visualizations became important for the final report and presentation.
-
----
-
-## Key Outcomes
-
-At the end of this phase:
-
-- Bistatic and algorithmic enhancements were successfully integrated
-- Performance gains became measurable
-- Enhanced detection behaviour was observed
-- The complete experimental framework became ready for evaluation
-
----
-
-# Phase 5 — Evaluation & Results
-
-## Overview
-The final phase focuses on performance evaluation, benchmarking, and result interpretation.
-
-This stage transforms the project from a simulation prototype into a research-oriented study with measurable outcomes.
-
-The emphasis is placed on comparing approaches and validating whether the proposed enhancements genuinely improve radar performance.
-
----
-
-## Main Objectives
-
-- Compare monostatic and bistatic radar performance
-- Benchmark enhancement algorithms
-- Measure detection probability
-- Analyze SNR improvements
-- Generate publication-style plots and results
-- Summarize overall findings
-
----
-
-## Comparative Analysis
-
-The following comparisons were performed:
-
-| Comparison | Purpose |
+| Metric | Observation |
 |---|---|
-| Monostatic vs Bistatic | Geometry impact |
-| Standard FFT vs Enhanced FFT | Resolution improvement |
-| Basic CFAR vs Improved CFAR | Detection reliability |
-| Non-integrated vs Integrated Signals | SNR improvement |
-
-These comparisons helped identify the strongest contributors to performance gain.
-
----
-
-## Detection Probability Analysis
-
-Detection probability experiments were conducted under varying:
-
-- Noise conditions
-- Target ranges
-- Reflection strengths
-- Baseline distances
-- Algorithm selections
-
-This helped evaluate real-world robustness.
+| Range Resolution | Improved using enhancement techniques |
+| Detection Stability | Increased with CFAR-based methods |
+| Weak Target Visibility | Improved through coherent integration |
+| SNR Performance | Enhanced under bistatic configurations |
+| Coverage Analysis | Better spatial diversity observed |
 
 ---
 
-## Performance Metrics
+# ⚙️ Installation & Setup
 
-The following metrics were analyzed:
+## 1️⃣ Clone Repository
 
-- Range resolution
-- Detection probability
-- False alarm rate
-- SNR improvement
-- Peak localization accuracy
-- Weak target detection capability
-
-These metrics formed the basis of the final conclusions.
+```bash
+git clone https://github.com/Anshx-xx/FMCW-RADAR-PROJECT.git
+```
 
 ---
 
-## Final Outputs
+## 2️⃣ Install Dependencies
 
-The final deliverables include:
+```bash
+pip install numpy matplotlib scipy pandas
+```
 
-- Complete FMCW radar simulation
-- Bistatic geometry framework
-- Range enhancement algorithms
-- Evaluation plots
-- Comparative analysis report
-- Final presentation material
+Optional:
 
----
-
-## Final Conclusion
-
-The project demonstrates that combining bistatic radar geometry with modern signal processing algorithms can significantly improve radar detection capability and range estimation quality.
-
-Instead of relying on a single enhancement method, the project explores how geometric diversity and algorithmic intelligence complement each other to create a more capable radar sensing system.
-
-The final system serves as both:
-
-- A research-oriented simulation framework
-- A learning platform for advanced FMCW radar concepts
+```bash
+pip install radarsimpy
+```
 
 ---
 
-# Final Output — Simulation + Range Enhancement Report
+# ▶️ Running the Simulations
 
-## Project Summary
+## Execute Individual Phases
 
-This project develops a complete FMCW radar simulation framework capable of:
-
-- Monostatic radar processing
-- Bistatic geometry modelling
-- Range enhancement techniques
-- Advanced detection algorithms
-- Comparative performance evaluation
-
-The workflow progresses from basic radar understanding to a fully enhanced and experimentally validated radar processing pipeline.
-
----
-
-## Overall Highlights
-
-- End-to-end FMCW radar simulation
-- Geometry-aware bistatic modelling
-- Advanced FFT and CFAR implementations
-- Super-resolution experimentation
-- SNR improvement analysis
-- Comprehensive visualization pipeline
-- Research-oriented evaluation framework
+```bash
+python simulation_files/P1/main.py
+python simulation_files/P2/main.py
+python simulation_files/P3A/main.py
+python simulation_files/P3B/main.py
+python simulation_files/P4/main.py
+python simulation_files/P5/final_evaluation.py
+```
 
 ---
 
-## Future Scope
+# 📚 Research Concepts Covered
 
-Possible future improvements include:
-
-- Real hardware integration
-- MIMO radar expansion
-- Deep learning based target classification
-- Real-time processing acceleration
-- GPU-based signal processing
-- Multi-target tracking systems
-- Clutter modelling for outdoor environments
-
----
-
-## Tools & Libraries
-
-| Tool | Role |
-|---|---|
-| Python | Core development |
-| MATLAB | Signal analysis |
-| radarsimpy | Radar simulation |
-| NumPy | Numerical computation |
-| Matplotlib | Visualization |
-| Jupyter Notebook | Experimentation |
+- FMCW Radar Systems
+- Bistatic Radar Geometry
+- Signal Reflection Modelling
+- Range FFT Processing
+- Range-Doppler Mapping
+- Adaptive Threshold Detection
+- CFAR Algorithms
+- SNR Enhancement
+- Weak Target Detection
+- Radar Performance Evaluation
 
 ---
 
-## Author Notes
+# 🚀 Future Improvements
 
-This project was designed not only as a simulation exercise but also as a deep exploration of how radar systems process information from raw electromagnetic reflections to meaningful target detections.
+Possible future extensions include:
 
-Each phase intentionally builds on the previous one, gradually moving from theory to implementation and finally toward measurable performance enhancement.
+- 🎯 Real-Time Radar Processing
+- 🧠 AI-Based Target Classification
+- 🛰️ MIMO Radar Integration
+- ⚡ GPU-Accelerated Signal Processing
+- 📡 Real Hardware Interfacing
+- 🌍 Outdoor Clutter Modelling
+- 🚁 Drone-Based Radar Platforms
+
+---
+
+# 🤝 Contributions
+
+Contributions, optimizations, and research suggestions are welcome.
+
+Feel free to:
+
+- Fork the repository
+- Improve algorithms
+- Add visualization modules
+- Optimize FFT processing
+- Experiment with alternative radar geometries
+
+---
+
+# 👨‍💻 Author
+
+## Ansh Somaiya
+
+📡 Radar Signal Processing Enthusiast  
+🛰️ FMCW Radar Simulation Research  
+💻 Python • MATLAB • Signal Processing  
+
+---
+
+# ⭐ Support The Project
+
+If you found this repository useful:
+
+⭐ Star the repository  
+🍴 Fork the project  
+📢 Share it with others interested in radar systems & signal processing  
+
+---
+
+# 📜 License
+
+This project is intended for educational and research purposes.
+
+---
+
+<p align="center">
+  <img src="images/footer_radar.png" width="100%">
+</p>
+
+<p align="center">
+<b>📡 Advanced FMCW Radar Processing • Bistatic Geometry • Signal Enhancement • Detection Intelligence 📡</b>
+</p>
 
