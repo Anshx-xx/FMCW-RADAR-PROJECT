@@ -1,6 +1,6 @@
 # FMCW-RADAR-PROJECT
 
-This is my project repository for building an FMCW radar system. My project supervisor provided me with 4 reference repositories to study and use as a base for the work. I've added them here as submodules so everything stays in one place and is easy to track.
+This is my project repository for building an FMCW radar system. I am using 4 reference repositories to study and use as a base for the work. I've added them here as submodules so everything stays in one place and is easy to track.
 
 The repos cover different aspects of FMCW radar — simulation in MATLAB, hardware firmware for TI mmWave chips, Python-based simulation, and target detection. I'll be going through each of these as the project moves forward and building on top of them.
 
