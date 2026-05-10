@@ -38,4 +38,4 @@ MATLAB/Octave project covering FMCW waveform generation, beat signal computation
 
 ## Status
 
-Project is in the early stages. Currently going through the reference material provided by my supervisor. Will update this repo as the project develops.
+Project is in the early stages. Will update this repo as the project develops.
