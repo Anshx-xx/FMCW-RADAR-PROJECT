@@ -21,6 +21,8 @@ Output: 8 PNG figures
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
 from scipy.signal import spectrogram
 from scipy.linalg import svd
 
@@ -251,14 +253,39 @@ def omp_sparse_reconstruction(beat_sig, n_range_atoms=512, sparsity=3):
     return r_atoms, sparse_db
 
 def peak_snr(pdb, r_axis, target_r, window_m=30):
-    """Extract peak SNR near target range vs noise floor."""
+    """
+    Extract peak SNR near target range vs noise floor.
+    Safe version with bounds checking.
+    """
+
     idx_peak = np.argmin(np.abs(r_axis - target_r))
-    win = int(window_m / (r_axis[1] - r_axis[0]))
-    region = pdb[max(0, idx_peak - win): idx_peak + win]
-    peak   = np.max(region)
-    # Noise floor from far range
+
+    # Prevent division issues
+    spacing = max(abs(r_axis[1] - r_axis[0]), 1e-6)
+
+    # Safe window size
+    win = max(1, int(window_m / spacing))
+
+    # Safe slice bounds
+    start_idx = max(0, idx_peak - win)
+    end_idx = min(len(pdb), idx_peak + win)
+
+    region = pdb[start_idx:end_idx]
+
+    # Prevent empty array crash
+    if len(region) == 0:
+        return 0
+
+    peak = np.max(region)
+
+    # Noise floor region
     noise_region = pdb[int(len(pdb) * 0.7):]
-    noise_floor  = np.percentile(noise_region, 50)
+
+    if len(noise_region) == 0:
+        noise_floor = 0
+    else:
+        noise_floor = np.percentile(noise_region, 50)
+
     return peak - noise_floor
 
 
